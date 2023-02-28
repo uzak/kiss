@@ -1,0 +1,12 @@
+{{ define "main" }}
+
+<h1>Tags</h1>
+
+<ul class="posts">
+	{{- range (sort .Data.Pages) -}}
+		<li class="post">
+			<a href="{{ .RelPermalink }}">{{.Title}}</a> ({{ .Pages.Len }})
+		</li>
+	{{- end -}}
+</ul>
+{{ end }}
