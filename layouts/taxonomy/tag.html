@@ -1,0 +1,18 @@
+{{- define "main" -}}
+<section div class="article-header">
+  <h1>Tag: {{ .Title }}</h1>
+</section>
+
+<ul>
+  {{- $count := len .Data.Pages -}}
+  {{- range $index, $element := .Data.Pages -}}
+  <li>
+    {{ sub $count $index }}.
+      <a href="{{.RelPermalink}}">{{ .Title }}</a> {{ .Date.Format "2006-01-02" }}
+  </li>
+  {{- end -}}
+</ul>
+
+<p>All <a href="/tags">tags</a></p>
+
+{{- end -}}

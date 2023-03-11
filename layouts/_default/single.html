@@ -52,13 +52,13 @@
     {{ end }}
 
     {{ if gt .Params.tags 0 }}
-    <div class="post-tags">
+    <p class="post-tags">
       <i class="fas fa-tags"></i>
       {{ range .Params.tags }}
         <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
         &nbsp;
       {{ end }}
-    </div>
+    </p>
     {{ end }}
   </footer>
   

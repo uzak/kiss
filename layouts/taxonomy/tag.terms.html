@@ -1,0 +1,16 @@
+{{- define "main" -}}
+  <h1>Tags</h1>
+  {{- $type := .Type -}}
+    <div class="tag-cloud">      
+      <ul>
+      {{- range $tagName, $taxonomy := $.Site.Taxonomies.tags -}}
+        {{- $count := len $taxonomy.Pages -}}
+        <li>
+          <a href="/{{ $type }}/{{ $tagName }}">
+            {{- $tagName -}}
+          </a><sup>({{ $count }}).</sup>
+        </li>
+      {{- end -}}
+    </ul>
+    </div>
+{{- end -}}

@@ -19,3 +19,17 @@ nav > a {
   border-bottom: 1px dashed black;
   margin-bottom: 1rem;
 }
+
+time {
+  font-style: italic;
+}
+
+div.post-toc-title {
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 1rem;
+}
+
+header {
+  margin-bottom: 2rem;
+}
