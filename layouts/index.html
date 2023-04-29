@@ -3,21 +3,25 @@
 <article class="archive">
   <header style="text-align: center;">
     <h1>
-      Latest micro-posts
+      Latest posts
     </h1>
-    Here is the <a href="/micro">full archives</a> of micro-posts. Longer posts are available in <a href="/post">blog</a>.
+    <div class="title-description">
+      Here is the combination of <a href="/micro">micro-posts</a> and longer posts from <a href="/post">blog</a>.
+    </div>
   </header>
   <div class="archive-list">
-    {{ $paginator := .Paginate (where site.RegularPages "Params.type" "tweet")}}
+    {{ $paginator := .Paginate (where site.RegularPages "Params.draft" false )}}
     {{ range $paginator.Pages }}
       <div class="micro">
-      {{ if .Date }}
-        <a href="{{ .Permalink }}">
-          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
-        </a>
-        {{ .Content }}
+        {{ if eq .Params.Type "tweet" }}
+          {{ partial "micro.html" . }}
+        {{ else }}
+          <span>
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
+            <a href="{{ .Permalink }}">{{ .Params.Title }}</a>
+          </span>
+        {{ end }}
       </div>
-      {{ end }}
     {{ end }}
   </div>
   {{ partial "pagination.html" . }}
