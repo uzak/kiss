@@ -4,13 +4,12 @@
     <h1> All micro-posts </h1>
 
   <div class="archive-list">
-    {{ range .Paginator.Pages }}
+    {{ range .Pages }}
       <div class="micro">
         {{ partial "micro.html" . }}
       </div>
     {{ end }}
   </div>
-  {{ partial "pagination.html" . }}
 </article>
 
 {{ end }}
